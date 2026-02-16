@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Promos — RadarPromo974</title>
+<title>Promos — RadarPromo974 <span class="small">• V2 FINAL</span></title>
 <meta name="description" content="Liste des promos filtrables par zone et catégorie."/>
 <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml"/>
 <link rel="stylesheet" href="/assets/style.css"/>
@@ -57,6 +57,8 @@
     <div class="drawer__links">
       <a href="/"><b>Accueil</b><small>Résumé + à la une</small></a>
       <a href="/promos"><b>Promos</b><small>Filtres + tri</small></a>
+      <a href="/arrivages"><b>Arrivages</b><small>Containers</small></a>
+      <a href="/cyclone"><b>Cyclone</b><small>Urgences</small></a>
       <a href="/publier"><b>Publier</b><small>Signaler une promo</small></a>
       <a href="/boost"><b>Booster</b><small>Tarifs + PayPal</small></a>
       <a href="/paiement-success"><b>Paiement reçu</b><small>Activer boost</small></a>
@@ -88,14 +90,22 @@
       <div class="field"><label>Catégorie</label>
         <select id="category2"><option value="ALL">Toutes</option><option>Travaux</option><option>Maison</option><option>Alimentaire</option><option>High-Tech</option><option>Auto</option><option>Loisirs</option><option>Autre</option></select>
       </div>
+      <div class="field"><label>Tri</label>
+        <select id="sort2">
+          <option value="RECENT">Plus récent</option>
+          <option value="END_SOON">Fin proche</option>
+          <option value="BEST_DISCOUNT">Meilleure remise</option>
+        </select>
+      </div>
     </div>
-    <div class="toggles">
+    <div class="toggles>
       <label class="check"><input id="onlyContainer2" type="checkbox"/> Arrivage container</label>
       <button class="btn btn--primary" id="btnApply2">Appliquer</button>
       <a class="btn btn--ghost" href="/publier">Signaler</a>
     </div>
   </div>
   <div class="grid" id="grid"></div>
+<div class="section__foot"><button class="btn btn--ghost" id="more2" type="button">Voir plus</button></div>
 </section>
 
 </main>

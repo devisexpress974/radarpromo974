@@ -1,4 +1,4 @@
-# RadarPromo974 — PRO V1 (Base solide)
+# RadarPromo974 — V2 FINAL (MVP PRO)
 
 ## Déploiement
 1) Déploie ce dossier sur Netlify (drag & drop ou Git)
@@ -47,3 +47,33 @@ id, merchant_id, promo_id, plan, amount, currency, status, paypal_link_used, cre
 Teste dans ton navigateur:
 .../tabs/RAD_PROMOS
 Si tu vois du JSON, c’est ok.
+
+
+## Format dates
+Le site accepte **YYYY-MM-DD** ou **JJ/MM/AA** (et JJ/MM/AAAA). L’affichage est en **JJ/MM/AA**.
+
+
+## RAD_SETTINGS (V2)
+Dans l’onglet RAD_SETTINGS, ajoute (ligne 1) :
+- cyclone_mode = true/false
+- moderation_mode = true/false
+- zones = Nord,Sud,Ouest,Est
+- categories = Travaux,Maison,Alimentaire,High-Tech,Auto,Loisirs,Autre
+- RRD_SERVICES_URL = https://devisexpress974.netlify.app/
+
+Le site lit ces valeurs via `/.netlify/functions/settings`.
+
+
+## Nouvelles pages (V2)
+- /arrivages
+- /cyclone
+- /zone/nord (et autres zones)
+- /categorie/travaux (slugs)
+
+## Tri + Pagination (V2)
+- Tri : Plus récent / Fin proche / Meilleure remise
+- Bouton : Voir plus (12 par 12)
+
+
+### Compatibilité colonne Devis
+Si tu as déjà `devis_base_url` dans `RAD_SETTINGS`, c’est accepté (fallback). Mais la colonne recommandée est `RRD_SERVICES_URL`.

@@ -84,7 +84,7 @@ input::placeholder, textarea::placeholder{color: rgba(244,246,255,.55)}
 .cardPromo__title{margin:0 0 8px; font-size:16px; line-height:1.15}
 .badges{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px}
 .badge{font-size:11px; padding:4px 8px; border-radius:999px; border:1px solid var(--line); color: var(--muted);}
-.badge--boost{border-color: rgba(255,176,32,.35); color: rgba(255,176,32,.92)}
+.badge--boost{border-color: rgba(255,176,32,.55); color: rgba(255,176,32,.98); background: rgba(255,176,32,.10)}
 .badge--urgent{border-color: rgba(255,90,31,.35); color: rgba(255,90,31,.92)}
 .badge--container{border-color: rgba(193,18,31,.35); color: rgba(255,120,120,.95)}
 .badge--zone,.badge--cat,.badge--store{border-color: rgba(255,255,255,.14)}

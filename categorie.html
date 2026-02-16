@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Paiement success — RadarPromo974 <span class="small">• V2 FINAL</span></title>
-<meta name="description" content="Activer un boost après PayPal."/>
+<title>Catégorie — RadarPromo974 <span class="small">• V2 FINAL</span></title>
+<meta name="description" content="Promos par catégorie."/>
 <link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml"/>
 <link rel="stylesheet" href="/assets/style.css"/>
 
@@ -77,48 +77,31 @@
 
 <main class="container" id="main">
 <section class="section">
-  <div class="section__head"><div><div class="small">Activation boost</div><h2 style="margin:6px 0 0">Paiement reçu</h2></div><a class="btn btn--ghost" href="/boost">Tarifs</a></div>
+  <div class="section__head">
+    <div>
+      <div class="small">Page catégorie</div>
+      <h2 style="margin:6px 0 0" id="catTitle">Catégorie</h2>
+    </div>
+    <a class="btn btn--ghost" href="/promos">Tous les filtres</a>
+  </div>
   <div class="section__body">
-    <div id="payMsg" class="alert hidden"></div>
-    <form id="payForm">
-      <div class="filters">
-        <div class="field"><label>Promo ID</label><input name="promo_id" required placeholder="RADP-..."/></div>
-        <div class="field"><label>Plan</label>
-          <select name="plan" required>
-            <option value="">Choisir…</option>
-            <option value="BOOST_24H">BOOST_24H (9€)</option>
-            <option value="BOOST_7D">BOOST_7D (19€)</option>
-            <option value="BOOST_NOTIFY">BOOST_NOTIFY (29€)</option>
-          </select>
-        </div>
-        <div class="field"><label>Email (optionnel)</label><input name="email" type="email"/></div>
+    <p class="lead" id="catLead">Promos filtrées par catégorie.</p>
+    <div class="filters">
+      <div class="field"><label>Recherche</label><input id="qC" type="search" placeholder="mot-clé"/></div>
+      <div class="field"><label>Tri</label>
+        <select id="sortC">
+          <option value="RECENT">Plus récent</option>
+          <option value="END_SOON">Fin proche</option>
+          <option value="BEST_DISCOUNT">Meilleure remise</option>
+        </select>
       </div>
-      <button class="btn btn--primary" type="submit">Activer</button>
-      <p class="small">V1 : sans vérification PayPal automatique.</p>
-    </form>
+      <div class="field"><label>&nbsp;</label><button class="btn btn--primary" id="applyC" type="button">Appliquer</button></div>
+    </div>
+    <div class="grid" id="gridCat"></div>
+    <div class="section__foot"><button class="btn btn--ghost" id="moreCat" type="button">Voir plus</button></div>
   </div>
 </section>
-<script>
-document.getElementById("payForm").addEventListener("submit", async (e)=>{
-  e.preventDefault();
-  const msg=document.getElementById("payMsg");
-  const payload=Object.fromEntries(new FormData(e.target).entries());
-  msg.classList.add("hidden");
-  try{
-    const r=await fetch("/.netlify/functions/activate-boost",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
-    const j=await r.json();
-    if(!r.ok) throw new Error(j.error||"Erreur");
-    msg.textContent="✅ Boost activé jusqu’au : "+j.boosted_until;
-    msg.className="alert";
-    msg.classList.remove("hidden");
-    e.target.reset();
-  }catch(err){
-    msg.textContent="❌ "+err.message;
-    msg.className="alert alert--error";
-    msg.classList.remove("hidden");
-  }
-});
-</script>
+
 
 </main>
 
