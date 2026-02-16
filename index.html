@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>RadarPromo974 — Promos locales à La Réunion</title>
+<meta name="description" content="Promos locales, zones, catégories, arrivages container, urgences."/>
+<link rel="icon" href="/assets/img/logo.svg" type="image/svg+xml"/>
+<link rel="stylesheet" href="/assets/style.css"/>
+
+</head>
+<body>
+<header class="topbar">
+  <div class="container topbar__inner">
+    <a class="brand" href="/" aria-label="Accueil RadarPromo974">
+      <div class="brand__mark"><svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <defs>
+    <linearGradient id="g" x1="6" y1="6" x2="58" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFB020"/>
+      <stop offset="0.55" stop-color="#FF5A1F"/>
+      <stop offset="1" stop-color="#C1121F"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="26" stroke="url(#g)" stroke-width="4" opacity="0.9"/>
+  <circle cx="32" cy="32" r="18" stroke="url(#g)" stroke-width="2" opacity="0.35"/>
+  <circle cx="32" cy="32" r="10" stroke="url(#g)" stroke-width="2" opacity="0.25"/>
+  <path d="M32 12V52" stroke="url(#g)" stroke-width="2" opacity="0.25"/>
+  <path d="M12 32H52" stroke="url(#g)" stroke-width="2" opacity="0.25"/>
+  <path d="M18 45C24 39 28 36 32 30C36 36 40 39 46 45H18Z" fill="rgba(0,0,0,.25)" stroke="url(#g)" stroke-width="1.5"/>
+  <path d="M44 20L50 14" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M46 18C40 22 36 26 32 32" stroke="url(#g)" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="32" cy="32" r="2.4" fill="#FFB020"/>
+</svg>
+</div>
+      <div>
+        <div class="brand__name">RadarPromo974</div>
+        <div class="brand__tag">Scanne les meilleures offres de La Réunion.</div>
+      </div>
+    </a>
+    <nav class="nav">
+      <a class="btn btn--ghost hide-sm" href="/promos">Promos</a>
+      <a class="btn btn--ghost hide-sm" href="/publier">Publier</a>
+      <a class="btn btn--ghost hide-sm" href="/boost">Booster</a>
+      <a class="btn btn--primary" href="https://devisexpress974.netlify.app/" rel="noopener">Trouver un artisan</a>
+      <button class="btn burger" id="burger" aria-label="Menu">☰</button>
+    </nav>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer__bg" id="drawerBg"></div>
+  <div class="drawer__panel" role="dialog" aria-label="Menu">
+    <div class="drawer__head">
+      <div style="font-weight:900">Menu</div>
+      <button class="btn btn--ghost" id="drawerClose">Fermer</button>
+    </div>
+    <div class="drawer__links">
+      <a href="/"><b>Accueil</b><small>Résumé + à la une</small></a>
+      <a href="/promos"><b>Promos</b><small>Filtres + tri</small></a>
+      <a href="/publier"><b>Publier</b><small>Signaler une promo</small></a>
+      <a href="/boost"><b>Booster</b><small>Tarifs + PayPal</small></a>
+      <a href="/paiement-success"><b>Paiement reçu</b><small>Activer boost</small></a>
+      <a href="/admin"><b>Admin</b><small>Validation</small></a>
+      <a href="/a-propos"><b>À propos</b></a>
+      <a href="/contact"><b>Contact</b></a>
+      <a href="/cgu"><b>CGU</b></a>
+      <a href="/confidentialite"><b>Confidentialité</b></a>
+      <a href="/mentions-legales"><b>Mentions légales</b></a>
+      <a href="/cookies"><b>Cookies</b></a>
+    </div>
+    <div class="hr"></div>
+    <div class="small">Reflex974 (bientôt) — hub intelligent RRD.</div>
+  </div>
+</div>
+
+<main class="container" id="main">
+<section class="hero">
+  <div>
+    <div class="heroCard">
+      <div class="heroMedia"></div>
+      <div class="heroCopy">
+        <h1>Les bons plans avant tout le monde, Réunion avant tout.</h1>
+        <p class="lead">RadarPromo974 détecte les promos par <b>zone</b> et <b>catégorie</b>. Les offres <b>boostées</b> passent en tête.</p>
+
+        <div class="filters">
+          <div class="field"><label for="q">Recherche</label><input id="q" type="search" placeholder="Ex: carrelage, riz, télé…" autocomplete="off"/></div>
+          <div class="field"><label for="zone">Zone</label>
+            <select id="zone"><option value="ALL">Toute l'île</option><option>Nord</option><option>Sud</option><option>Ouest</option><option>Est</option></select>
+          </div>
+          <div class="field"><label for="category">Catégorie</label>
+            <select id="category"><option value="ALL">Toutes</option><option>Travaux</option><option>Maison</option><option>Alimentaire</option><option>High-Tech</option><option>Auto</option><option>Loisirs</option><option>Autre</option></select>
+          </div>
+        </div>
+
+        <div class="toggles">
+          <label class="check"><input id="onlyContainer" type="checkbox"/> Arrivage container</label>
+          <button class="btn btn--primary" id="btnSearch">Voir les promos</button>
+          <a class="btn btn--ghost" href="/publier">Signaler une promo</a>
+        </div>
+
+        <div class="kpis" id="kpis"></div>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="section__head"><h2>À la une (Boost)</h2><a class="btn btn--ghost" href="/boost">Tarifs</a></div>
+      <div class="grid" id="gridFeatured"></div>
+    </section>
+
+    <section class="section">
+      <div class="section__head"><h2>Urgence</h2><a class="btn btn--ghost" href="/promos">Voir</a></div>
+      <div class="grid" id="gridUrgent"></div>
+    </section>
+
+    <section class="section">
+      <div class="section__head"><h2>Arrivages container</h2><a class="btn btn--ghost" href="/promos?container=1">Voir</a></div>
+      <div class="grid" id="gridContainer"></div>
+    </section>
+  </div>
+
+  <aside class="heroCard">
+    <div class="heroCopy">
+      <div class="pill">Univers RRD</div>
+      <h2 style="margin:10px 0 6px">Radar • Devis • Reflex</h2>
+      <p class="lead" style="margin-top:0">RadarPromo974 (promos) se connecte à DevisExpress974 (services) et prépare Reflex974 (hub intelligent).</p>
+      <div class="hr"></div>
+      <a class="btn btn--primary btn--full" href="https://devisexpress974.netlify.app/">Trouver un artisan</a>
+      <div style="height:10px"></div>
+      <a class="btn btn--ghost btn--full" href="/promos">Explorer les promos</a>
+      <div class="hr"></div>
+      <div class="small">Branding : radar circulaire + silhouette du Piton • dégradés “volcan”.</div>
+    </div>
+  </aside>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="small">© <span id="year"></span> RadarPromo974 • Univers RRD</div>
+    <div class="small">Netlify • Sheetbest • Réunion (974)</div>
+  </div>
+</footer>
+
+<script src="/assets/app.js" defer></script>
+</body>
+</html>

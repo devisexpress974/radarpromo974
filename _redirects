@@ -1,0 +1,17 @@
+/promos          /promos.html         200
+/boost           /boost.html          200
+/publier         /publier.html        200
+/paiement-success /paiement-success.html 200
+/admin           /admin.html          200
+/mentions-legales /mentions-legales.html 200
+/cgu             /cgu.html            200
+/confidentialite /confidentialite.html 200
+/cookies         /cookies.html        200
+/contact         /contact.html        200
+/a-propos        /a-propos.html       200
+/cyclone         /cyclone.html        200
+/arrivages       /arrivages.html      200
+/zone/*          /zone.html           200
+/categorie/*     /categorie.html      200
+/promo/*         /promo.html          200
+/*               /index.html          200
